@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 
 #如果你想openstack创建windows或者linux的虚拟机，可以选择使用该脚本。
 
@@ -14,9 +14,9 @@ read -p "please input the virtual machine name that you want to create : " name2
 while true;do
 read -r -p "windows or linux? [w/l]" input
     case $input in
-        [Ww][Ii][Nn][Dd][Oo][Ww][Ss]|[Ww]*) nova boot --flavor ecs.c2.large  --nic net-id=03fd90b7-6804-4290-9aef-ca1233041089 --image ${image_id}  --availability-zone nova --security-group default  --user-data /root/libaoshan/userdata/windows/userdata_win_05140953 --meta admin_user=Administrator --meta admin_pass=Y0v0le.com  --config-drive true  ${name2}; break;;
-      [Ll][Ii][Nn][Uu][Xx][Ss]|[Ll]*)nova boot --flavor ecs.c1.large --nic net-id=03fd90b7-6804-4290-9aef-ca1233041089 --block-device source=image,id=$image_id,dest=volume,shutdown=remove,size=$size,bootindex=0 --availability-zone nova --security-group default --user-data /root/user_data  --config-drive true ${name2}; break;;
-          *) echo "please answer windows or linux";;
+		[Ww][Ii][Nn][Dd][Oo][Ww][Ss]|[Ww]*) nova boot --flavor ecs.c2.large  --nic net-id=03fd90b7-6804-4290-9aef-ca1233041089 --image ${image_id}  --availability-zone nova --security-group default  --user-data /root/libaoshan/userdata/windows/userdata_win_05140953 --meta admin_user=Administrator --meta admin_pass=Y0v0le.com  --config-drive true  ${name2}; break;;
+		[Ll][Ii][Nn][Uu][Xx][Ss]|[Ll]*)nova boot --flavor ecs.c1.large --nic net-id=03fd90b7-6804-4290-9aef-ca1233041089 --block-device source=image,id=$image_id,dest=volume,shutdown=remove,size=$size,bootindex=0 --availability-zone nova --security-group default --user-data /root/user_data  --config-drive true ${name2}; break;;
+        *) echo "please answer windows or linux";;
 esac
 done
 
