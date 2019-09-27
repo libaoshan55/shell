@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+#上传镜像
 UUID=`uuidgen`
 dir='/root/libaoshan/'
 pool="images"
